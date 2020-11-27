@@ -40,8 +40,8 @@ GET http://localhost:3000/video
 // Content-Type: application/json; charset=utf-8
 // Content-Length: 74
 // ETag: W/"4a-Msq8AnbSVjN8m7Q1XQgClBxGu24"
-// Date: Fri, 27 Nov 2020 15:57:00 GMT
+// Date: Fri, 27 Nov 2020 17:24:59 GMT
 // Connection: keep-alive
-// Request duration: 0.057592s
+// Request duration: 0.008484s
 #+END_SRC
 

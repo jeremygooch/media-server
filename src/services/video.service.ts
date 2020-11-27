@@ -19,13 +19,13 @@ export class VideoService {
 
     // Create headers
     const contentLength: number = end - start + 1;
-    const headers: OutgoingHttpHeaders = {
+    const chunkHeaders: OutgoingHttpHeaders = {
       "Content-Range": `bytes ${start}-${end}/${videoSize}`,
       "Accept-Ranges": "bytes",
       "Content-Length": contentLength,
       "Content-Type": "video/mp4",
     };
 
-    return { videoPath, headers, start, end };
+    return { videoPath, chunkHeaders, start, end };
   }
 }
