@@ -1,22 +1,16 @@
-import { Controller, Get, Req, Res, HttpCode } from '@nestjs/common';
+import { Controller, Get, Req, Res, HttpStatus, BadRequestException, HttpCode } from '@nestjs/common';
+import { Request, Response } from 'express';
+
 import * as fs from 'fs';
 
 @Controller('video')
 export class VideoController {
   @Get()
-  videoStream(@Req() req, @Res() res): any {
-
-
-
-
-
-
-
+  videoStream(@Req() req: Request, @Res() res: Response): any {
     // @ts-ignore
     const range = req.headers.range; // What part of the video is the user watching?
     if (!range) {
-    // @ts-ignore
-      res.status(400).send("Requires Range header");
+      throw new BadRequestException('Requires Range Header');
     }
 
     // get video stats (about 61MB)
@@ -38,19 +32,13 @@ export class VideoController {
       "Content-Type": "video/mp4",
     };
 
-    // HTTP Status 206 for Partial Content
-    // @ts-ignore
-    res.writeHead(206, headers);
+
+    res.writeHead(HttpStatus.PARTIAL_CONTENT, headers);
 
     // create video read stream for this particular chunk
     const videoStream = fs.createReadStream(videoPath, { start, end });
 
     // Stream the video chunk to the client
     videoStream.pipe(res);
-
-    
-
-
-    // return videoStream;
   }
 }

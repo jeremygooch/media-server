@@ -16,28 +16,32 @@ this returns a cat name Erika ;-P !!!!!
 <!-- Content-Type: text/html; charset=utf-8 -->
 <!-- Content-Length: 39 -->
 <!-- ETag: W/"27-0EcWeUvE76NG0de5IjsvTVXjJN0" -->
-<!-- Date: Fri, 27 Nov 2020 00:07:10 GMT -->
+<!-- Date: Fri, 27 Nov 2020 14:38:09 GMT -->
 <!-- Connection: keep-alive -->
-<!-- Request duration: 0.061182s -->
+<!-- Request duration: 0.065826s -->
 #+END_SRC
 
 #+begin_src restclient
 
-POST http://localhost:3000/cats
+GET http://localhost:3000/video
 
 #+end_src
 
 #+RESULTS:
-#+BEGIN_SRC html
-This action adds a new cat
-<!-- POST http://localhost:3000/cats -->
-<!-- HTTP/1.1 201 Created -->
-<!-- X-Powered-By: Express -->
-<!-- Content-Type: text/html; charset=utf-8 -->
-<!-- Content-Length: 26 -->
-<!-- ETag: W/"1a-2akZlhd5h5eyBoEmpkMg7vz8ALY" -->
-<!-- Date: Thu, 26 Nov 2020 22:57:06 GMT -->
-<!-- Connection: keep-alive -->
-<!-- Request duration: 0.057949s -->
+#+BEGIN_SRC js
+{
+  "statusCode": 400,
+  "message": "Requires Range Header",
+  "error": "Bad Request"
+}
+// GET http://localhost:3000/video
+// HTTP/1.1 400 Bad Request
+// X-Powered-By: Express
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 74
+// ETag: W/"4a-Msq8AnbSVjN8m7Q1XQgClBxGu24"
+// Date: Fri, 27 Nov 2020 15:57:00 GMT
+// Connection: keep-alive
+// Request duration: 0.057592s
 #+END_SRC
 
