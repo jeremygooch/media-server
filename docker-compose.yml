@@ -8,10 +8,11 @@ services:
       target: development
     volumes:
       - .:/usr/src/app
-      - /home/jrm3/Downloads:/library
+      - ${LIBRARY_PATH}:/library
+      # Make node_modules anonymous
       - /usr/src/app/node_modules
     ports:
-      - 3000:3000
+      - ${SERVER_PORT}:${SERVER_PORT}
       - 9229:9229
     command: npm run start:dev
     env_file:
@@ -24,18 +25,20 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      # TODO: Move to env variables or similar
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      MYSQL_DATABASE: ${DB_DATABASE_NAME}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     ports:
       - '3306:3306'
     expose:
       - '3306'
+    networks:
+      - webnet
     volumes:
       - my-db:/var/lib/mysql
 networks:
   webnet:
+    driver: bridge
 volumes:
   my-db:
