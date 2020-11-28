@@ -1,5 +1,5 @@
-* Media Server
-TODO
+* API Examples
+
 
 #+begin_src restclient
 
@@ -25,23 +25,6 @@ GET http://localhost:3000/playback
 // Request duration: 0.009114s
 #+END_SRC
 
-#+BEGIN_SRC js
-{
-  "statusCode": 400,
-  "message": "Requires Range Header",
-  "error": "Bad Request"
-}
-// GET http://localhost:3000/video
-// HTTP/1.1 400 Bad Request
-// X-Powered-By: Express
-// Content-Type: application/json; charset=utf-8
-// Content-Length: 74
-// ETag: W/"4a-Msq8AnbSVjN8m7Q1XQgClBxGu24"
-// Date: Fri, 27 Nov 2020 17:24:59 GMT
-// Connection: keep-alive
-// Request duration: 0.008484s
-#+END_SRC
-
 #+begin_src restclient
   POST http://localhost:3000/auth/login
   Content-Type: application/json
@@ -54,17 +37,17 @@ GET http://localhost:3000/playback
 #+RESULTS:
 #+BEGIN_SRC js
 {
-  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJzdWIiOjEsImlhdCI6MTYwNjUxNDYxNCwiZXhwIjoxNjA2NTE0Njc0fQ.QMvljY_HMTcwQ7j_s3Xn_O8a1HLGKaKJXhsUBhthPzY"
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG4iLCJzdWIiOjEsImlhdCI6MTYwNjU4ODUzMSwiZXhwIjoxNjA2NTg4NTkxfQ.N52ibkETBe4sL607L5FRcR1ERFeVyi7hBN1Wc1i2ZGU"
 }
 // POST http://localhost:3000/auth/login
 // HTTP/1.1 201 Created
 // X-Powered-By: Express
 // Content-Type: application/json; charset=utf-8
 // Content-Length: 182
-// ETag: W/"b6-xm33hi3OCVTn33zS5lcifeQehK0"
-// Date: Fri, 27 Nov 2020 22:03:34 GMT
+// ETag: W/"b6-Kmp/0/ml+e5RTxTxVEh2WL43AR4"
+// Date: Sat, 28 Nov 2020 18:35:31 GMT
 // Connection: keep-alive
-// Request duration: 0.014614s
+// Request duration: 0.099097s
 #+END_SRC
 
 #+RESULTS:
@@ -87,9 +70,9 @@ GET http://localhost:3000/profile
 // Content-Type: application/json; charset=utf-8
 // Content-Length: 43
 // ETag: W/"2b-hGShxOkieaAVDloBubJVM+h58D8"
-// Date: Fri, 27 Nov 2020 21:27:54 GMT
+// Date: Sat, 28 Nov 2020 18:35:25 GMT
 // Connection: keep-alive
-// Request duration: 0.085662s
+// Request duration: 0.114322s
 #+END_SRC
 
 
@@ -114,4 +97,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Impva
 // Connection: keep-alive
 // Request duration: 0.016485s
 #+END_SRC
+
+* TODO: Encryption and hashing of data
+* TODO: Move DB data out of docker compose
 

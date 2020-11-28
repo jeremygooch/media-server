@@ -6,7 +6,7 @@ import { PartialChunk } from 'interfaces';
 @Injectable()
 export class PlaybackService {
   private getAssetPathById(id: string): string {
-    return '/home/jrm3/src/media-server/dist/HouseOnSororityRow_HDmed.mp4';
+    return '/library/HouseOnSororityRow_HDmed.mp4';
   }
 
   getAssetChunkById(id: string, range: string): PartialChunk {
