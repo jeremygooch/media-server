@@ -1,9 +1,0 @@
-{
-  "type": "mysql",
-  "host": "db",
-  "port": 3306,
-  "username": "username",
-  "password": "password",
-  "database": "database",
-  "entities": ["dist/**/*.entity{.ts,.js}"]
-}

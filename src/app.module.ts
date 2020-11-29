@@ -5,10 +5,21 @@ import { UsersModule } from './users/users.module';
 import { AppController } from 'app.controller';
 import { PlaybackModule } from './playback/playback.module';
 import { Connection } from 'typeorm';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot(),
+    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      'type': 'mysql',
+      'host': 'db',
+      'port': 3306,
+      'username': process.env.DB_USERNAME,
+      'password': process.env.DB_PASSWORD,
+      'database': process.env.DB_DATABASE_NAME,
+      'synchronize': true, // DEVELOPMENT ONLY
+      'entities': ['dist/**/*.entity{.ts,.js}']
+    }),
     AuthModule,
     UsersModule,
     PlaybackModule

@@ -390,4 +390,3 @@ Temporary Items
 .env
 ormconfig.json
 dist
-src/auth/constants.ts
