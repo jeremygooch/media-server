@@ -10,16 +10,16 @@ export class UsersService {
     private usersRepository: Repository<User>,
   ) {}
 
-  findAll(): Promise<User[]> {
-    return this.usersRepository.find();
+  async findAll(): Promise<User[]> {
+    return await this.usersRepository.find();
   }
 
-  findOneById(id: string): Promise<User> {
-    return this.usersRepository.findOne(id);
+  async findOneById(id: string): Promise<User> {
+    return await this.usersRepository.findOne(id);
   }
 
-  findByUsername(username: string): Promise<User[]> {
-    return this.usersRepository.find({
+  async findByUsername(username: string): Promise<User[]> {
+    return await this.usersRepository.find({
       where: {
         username,
         isActive: true
@@ -28,7 +28,11 @@ export class UsersService {
     });
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.usersRepository.delete(id);
+  }
+
+  async add(user: User): Promise<void> {
+    await this.usersRepository.insert(user);
   }
 }
